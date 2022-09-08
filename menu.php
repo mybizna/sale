@@ -5,7 +5,7 @@ $this->add_module_info("sale", [
     'description' => 'Sale',
     'icon' => 'fas fa-chart-pie',
     'path' => '/transactions/sales',
-    'class_str'=> 'text-primary border-primary'
+    'class_str'=> 'text-success border-success'
 ]);
 
 
