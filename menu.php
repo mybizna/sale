@@ -4,7 +4,7 @@ $this->add_module_info("sale", [
     'title' => 'Sale',
     'description' => 'Sale',
     'icon' => 'fas fa-chart-pie',
-    'path' => 'sale.admin.sale',
+    'path' => '/sale/admin/sale',
     'class_str'=> 'text-success border-success'
 ]);
 
