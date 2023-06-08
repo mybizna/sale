@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "mybizna/account": "^1.0.0"
+    "mybizna/account": ">=1.0.0"
   },
   "extra": {
     "laravel": {
