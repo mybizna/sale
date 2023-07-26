@@ -5,6 +5,9 @@ namespace Modules\Sale\Entities;
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
 
+use Modules\Core\Classes\Views\ListTable;
+use Modules\Core\Classes\Views\FormBuilder;
+
 class ReturnDetail extends BaseModel
 {
 
@@ -15,6 +18,56 @@ class ReturnDetail extends BaseModel
     public $migrationDependancy = [];
     protected $table = "sale_return_detail";
 
+
+    public function listTable(){
+        // listing view fields
+        $fields = new ListTable();
+
+        $fields->name('invoice_details_id')->type('text')->ordering(true);
+        $fields->name('trn_no')->type('text')->ordering(true);
+        $fields->name('product_id')->type('text')->ordering(true);
+        $fields->name('qty')->type('text')->ordering(true);
+        $fields->name('unit_price')->type('text')->ordering(true);
+        $fields->name('discount')->type('text')->ordering(true);
+        $fields->name('tax')->type('text')->ordering(true);
+        $fields->name('item_total')->type('text')->ordering(true);
+        $fields->name('ecommerce_type')->type('text')->ordering(true);
+
+        return $fields;
+
+    }
+    
+    public function formBuilder(){
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('invoice_details_id')->type('text')->group('w-1/2');
+        $fields->name('trn_no')->type('text')->group('w-1/2');
+        $fields->name('product_id')->type('text')->group('w-1/2');
+        $fields->name('qty')->type('text')->group('w-1/2');
+        $fields->name('unit_price')->type('text')->group('w-1/2');
+        $fields->name('discount')->type('text')->group('w-1/2');
+        $fields->name('tax')->type('text')->group('w-1/2');
+        $fields->name('item_total')->type('text')->group('w-1/2');
+        $fields->name('ecommerce_type')->type('text')->group('w-1/2');
+
+
+        return $fields;
+
+    }
+
+    public function filter(){
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('invoice_details_id')->type('text')->group('w-1/6');
+        $fields->name('trn_no')->type('text')->group('w-1/6');
+        $fields->name('product_id')->type('text')->group('w-1/6');
+        $fields->name('qty')->type('text')->group('w-1/6');
+
+        return $fields;
+
+    }
     /**
      * List of fields for managing postings.
      *
