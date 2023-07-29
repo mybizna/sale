@@ -5,21 +5,35 @@ namespace Modules\Sale\Entities;
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
 
-use Modules\Core\Classes\Views\ListTable;
-use Modules\Core\Classes\Views\FormBuilder;
+use Modules\Base\Classes\Views\ListTable;
+use Modules\Base\Classes\Views\FormBuilder;
 
 class ReturnDetail extends BaseModel
 {
-
+    /**
+     * The fields that can be filled
+     * @var array<string>
+     */
     protected $fillable = [
         'invoice_details_id', 'trn_no', 'product_id', 'qty', 'unit_price', 'discount',
         'tax', 'item_total', 'ecommerce_type'
     ];
-    public $migrationDependancy = [];
+
+    /**
+     * List of tables names that are need in this model during migration.
+     * @var array<string>
+     */
+    public array $migrationDependancy = [];
+
+    /**
+     * The table associated with the model.
+     * @var string
+     */
     protected $table = "sale_return_detail";
 
 
-    public function listTable(){
+    public function  listTable(): ListTable
+    {
         // listing view fields
         $fields = new ListTable();
 
@@ -37,7 +51,8 @@ class ReturnDetail extends BaseModel
 
     }
     
-    public function formBuilder(){
+    public function formBuilder(): FormBuilder
+{
         // listing view fields
         $fields = new FormBuilder();
 
@@ -56,7 +71,8 @@ class ReturnDetail extends BaseModel
 
     }
 
-    public function filter(){
+    public function filter(): FormBuilder
+    {
         // listing view fields
         $fields = new FormBuilder();
 
@@ -69,7 +85,7 @@ class ReturnDetail extends BaseModel
 
     }
     /**
-     * List of fields for managing postings.
+     * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void
