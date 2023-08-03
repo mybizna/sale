@@ -2,37 +2,43 @@
 
 namespace Modules\Sale\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
-
-use Modules\Base\Classes\Views\ListTable;
 use Modules\Base\Classes\Views\FormBuilder;
+use Modules\Base\Classes\Views\ListTable;
+use Modules\Base\Entities\BaseModel;
 
 class SaleReturn extends BaseModel
 {
     /**
      * The fields that can be filled
+     *
      * @var array<string>
      */
     protected $fillable = [
         'invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date', 'amount',
-        'discount', 'discount_type', 'tax', 'reason', 'comments', 'status'
+        'discount', 'discount_type', 'tax', 'reason', 'comments', 'status',
     ];
 
     /**
      * List of tables names that are need in this model during migration.
+     *
      * @var array<string>
      */
     public array $migrationDependancy = [];
 
     /**
      * The table associated with the model.
+     *
      * @var string
      */
     protected $table = "sale_return";
 
-
-    public function  listTable(): ListTable
+    /**
+     * Function for defining list of fields in table view.
+     *
+     * @return ListTable
+     */
+    public function listTable(): ListTable
     {
         // listing view fields
         $fields = new ListTable();
@@ -49,9 +55,14 @@ class SaleReturn extends BaseModel
         return $fields;
 
     }
-    
+
+    /**
+     * Function for defining list of fields in form view.
+     * 
+     * @return FormBuilder
+     */
     public function formBuilder(): FormBuilder
-{
+    {
         // listing view fields
         $fields = new FormBuilder();
 
@@ -68,12 +79,15 @@ class SaleReturn extends BaseModel
         $fields->name('comments')->type('text')->group('w-1/2');
         $fields->name('status')->type('text')->group('w-1/2');
 
-
-
         return $fields;
 
     }
 
+    /**
+     * Function for defining list of fields in filter view.
+     * 
+     * @return FormBuilder
+     */
     public function filter(): FormBuilder
     {
         // listing view fields
@@ -97,7 +111,7 @@ class SaleReturn extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table)
+    public function migration(Blueprint $table): void
     {
 
         $table->increments('id');

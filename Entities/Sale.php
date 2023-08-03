@@ -2,38 +2,44 @@
 
 namespace Modules\Sale\Entities;
 
-use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
-
-use Modules\Base\Classes\Views\ListTable;
 use Modules\Base\Classes\Views\FormBuilder;
+use Modules\Base\Classes\Views\ListTable;
+use Modules\Base\Entities\BaseModel;
 
 class Sale extends BaseModel
 {
     /**
      * The fields that can be filled
+     *
      * @var array<string>
      */
     protected $fillable = [
         'voucher_no', 'vendor_id', 'vendor_name', 'billing_address', 'trn_date',
         'due_date', 'amount', 'tax', 'tax_zone_id', 'ref', 'status', 'purchase_order',
-        'attachments', 'particulars'
+        'attachments', 'particulars',
     ];
 
     /**
      * List of tables names that are need in this model during migration.
+     *
      * @var array<string>
      */
     public array $migrationDependancy = [];
 
     /**
      * The table associated with the model.
+     *
      * @var string
      */
     protected $table = "sale";
 
-
-    public function  listTable(): ListTable
+    /**
+     * Function for defining list of fields in table view.
+     *
+     * @return ListTable
+     */
+    public function listTable(): ListTable
     {
         // listing view fields
         $fields = new ListTable();
@@ -47,14 +53,17 @@ class Sale extends BaseModel
         $fields->name('amount')->type('text')->ordering(true);
         $fields->name('tax')->type('text')->ordering(true);
 
-
-
         return $fields;
 
     }
-    
+
+    /**
+     * Function for defining list of fields in form view.
+     * 
+     * @return FormBuilder
+     */
     public function formBuilder(): FormBuilder
-{
+    {
         // listing view fields
         $fields = new FormBuilder();
 
@@ -73,11 +82,15 @@ class Sale extends BaseModel
         $fields->name('attachments')->type('text')->group('w-1/2');
         $fields->name('particulars')->type('text')->group('w-1/2');
 
-
         return $fields;
 
     }
 
+    /**
+     * Function for defining list of fields in filter view.
+     * 
+     * @return FormBuilder
+     */
     public function filter(): FormBuilder
     {
         // listing view fields
@@ -98,7 +111,7 @@ class Sale extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table)
+    public function migration(Blueprint $table): void
     {
 
         $table->increments('id');

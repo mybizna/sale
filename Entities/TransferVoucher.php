@@ -11,22 +11,30 @@ class TransferVoucher extends BaseModel
 {
     /**
      * The fields that can be filled
+     *
      * @var array<string>
      */
     protected $fillable = ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to', 'particulars'];
 
     /**
      * List of tables names that are need in this model during migration.
+     *
      * @var array<string>
      */
     public array $migrationDependancy = [];
 
     /**
      * The table associated with the model.
+     *
      * @var string
      */
     protected $table = "sale_transfer_voucher";
 
+    /**
+     * Function for defining list of fields in table view.
+     *
+     * @return ListTable
+     */
     public function listTable(): ListTable
     {
         // listing view fields
@@ -43,6 +51,11 @@ class TransferVoucher extends BaseModel
 
     }
 
+    /**
+     * Function for defining list of fields in form view.
+     * 
+     * @return FormBuilder
+     */
     public function formBuilder(): FormBuilder
     {
         // listing view fields
@@ -59,6 +72,11 @@ class TransferVoucher extends BaseModel
 
     }
 
+    /**
+     * Function for defining list of fields in filter view.
+     * 
+     * @return FormBuilder
+     */
     public function filter(): FormBuilder
     {
         // listing view fields
@@ -78,7 +96,7 @@ class TransferVoucher extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table)
+    public function migration(Blueprint $table): void
     {
         $table->increments('id');
         $table->integer('voucher_no')->nullable();
