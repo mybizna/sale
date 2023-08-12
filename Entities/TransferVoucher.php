@@ -17,6 +17,13 @@ class TransferVoucher extends BaseModel
     protected $fillable = ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to', 'particulars'];
 
     /**
+     * The fields that are to be render when performing relationship queries.
+     *
+     * @var array<string>
+     */
+    public $rec_names = ['vouncher_no', 'amount'];
+
+    /**
      * List of tables names that are need in this model during migration.
      *
      * @var array<string>
@@ -53,7 +60,7 @@ class TransferVoucher extends BaseModel
 
     /**
      * Function for defining list of fields in form view.
-     * 
+     *
      * @return FormBuilder
      */
     public function formBuilder(): FormBuilder
@@ -74,7 +81,7 @@ class TransferVoucher extends BaseModel
 
     /**
      * Function for defining list of fields in filter view.
-     * 
+     *
      * @return FormBuilder
      */
     public function filter(): FormBuilder
