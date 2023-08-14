@@ -3,8 +3,6 @@
 namespace Modules\Sale\Entities;
 
 use Illuminate\Database\Schema\Blueprint;
-use Modules\Base\Classes\Views\FormBuilder;
-use Modules\Base\Classes\Views\ListTable;
 use Modules\Base\Entities\BaseModel;
 
 class IReturn extends BaseModel
@@ -41,93 +39,26 @@ class IReturn extends BaseModel
     protected $table = "sale_return";
 
     /**
-     * Function for defining list of fields in table view.
-     *
-     * @return ListTable
-     */
-    public function listTable(): ListTable
-    {
-        // listing view fields
-        $fields = new ListTable();
-
-        $fields->name('invoice_id')->html('text')->ordering(true);
-        $fields->name('voucher_no')->html('text')->ordering(true);
-        $fields->name('vendor_id')->html('text')->ordering(true);
-        $fields->name('vendor_name')->html('text')->ordering(true);
-        $fields->name('trn_date')->html('text')->ordering(true);
-        $fields->name('amount')->html('text')->ordering(true);
-        $fields->name('discount')->html('text')->ordering(true);
-
-        return $fields;
-
-    }
-
-    /**
-     * Function for defining list of fields in form view.
-     *
-     * @return FormBuilder
-     */
-    public function formBuilder(): FormBuilder
-    {
-        // listing view fields
-        $fields = new FormBuilder();
-
-        $fields->name('invoice_id')->html('text')->group('w-1/2');
-        $fields->name('voucher_no')->html('text')->group('w-1/2');
-        $fields->name('vendor_id')->html('text')->group('w-1/2');
-        $fields->name('vendor_name')->html('text')->group('w-1/2');
-        $fields->name('trn_date')->html('text')->group('w-1/2');
-        $fields->name('amount')->html('text')->group('w-1/2');
-        $fields->name('discount')->html('text')->group('w-1/2');
-        $fields->name('discount_type')->html('text')->group('w-1/2');
-        $fields->name('tax')->html('text')->group('w-1/2');
-        $fields->name('reason')->html('text')->group('w-1/2');
-        $fields->name('comments')->html('text')->group('w-1/2');
-        $fields->name('status')->html('text')->group('w-1/2');
-
-        return $fields;
-
-    }
-
-    /**
-     * Function for defining list of fields in filter view.
-     *
-     * @return FormBuilder
-     */
-    public function filter(): FormBuilder
-    {
-        // listing view fields
-        $fields = new FormBuilder();
-
-        $fields->name('invoice_id')->html('text')->group('w-1/6');
-        $fields->name('voucher_no')->html('text')->group('w-1/6');
-        $fields->name('vendor_id')->html('text')->group('w-1/6');
-        $fields->name('vendor_name')->html('text')->group('w-1/6');
-
-        return $fields;
-
-    }
-    /**
      * List of fields to be migrated to the datebase when creating or updating model during migration.
      *
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table): void
+    public function fields(Blueprint $table): void
     {
 
-        $this->fields->increments('id');
-        $this->fields->integer('invoice_id');
-        $this->fields->integer('voucher_no');
-        $this->fields->integer('vendor_id')->nullable();
-        $this->fields->string('vendor_name')->nullable();
-        $this->fields->date('trn_date');
-        $this->fields->decimal('amount', 20, 2);
-        $this->fields->decimal('discount', 20, 2)->default(0.00);
-        $this->fields->string('discount_type')->nullable();
-        $this->fields->decimal('tax', 20, 2)->default(0.00);
-        $this->fields->text('reason')->nullable();
-        $this->fields->text('comments')->nullable();
-        $this->fields->integer('status')->nullable()->comment("0 means drafted, 1 means confirmed return");
+        $this->fields->increments('id')->html('text');
+        $this->fields->integer('invoice_id')->html('text');
+        $this->fields->integer('voucher_no')->html('text');
+        $this->fields->integer('vendor_id')->nullable()->html('text');
+        $this->fields->string('vendor_name')->nullable()->html('text');
+        $this->fields->date('trn_date')->html('text');
+        $this->fields->decimal('amount', 20, 2)->html('amount');
+        $this->fields->decimal('discount', 20, 2)->default(0.00)->html('amount');
+        $this->fields->string('discount_type')->nullable()->html('text');
+        $this->fields->decimal('tax', 20, 2)->default(0.00)->html('amount');
+        $this->fields->text('reason')->nullable()->html('textarea');
+        $this->fields->text('comments')->nullable()->html('textarea');
+        $this->fields->integer('status')->nullable()->html('switch')->comment("0 means drafted, 1 means confirmed return");
     }
 }
