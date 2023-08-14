@@ -47,12 +47,12 @@ class TransferVoucher extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('voucher_no')->type('text')->ordering(true);
-        $fields->name('trn_date')->type('text')->ordering(true);
-        $fields->name('amount')->type('text')->ordering(true);
-        $fields->name('ac_from')->type('text')->ordering(true);
-        $fields->name('ac_to')->type('text')->ordering(true);
-        $fields->name('particulars')->type('text')->ordering(true);
+        $fields->name('voucher_no')->html('text')->ordering(true);
+        $fields->name('trn_date')->html('text')->ordering(true);
+        $fields->name('amount')->html('text')->ordering(true);
+        $fields->name('ac_from')->html('text')->ordering(true);
+        $fields->name('ac_to')->html('text')->ordering(true);
+        $fields->name('particulars')->html('text')->ordering(true);
 
         return $fields;
 
@@ -68,12 +68,12 @@ class TransferVoucher extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('voucher_no')->type('text')->group('w-1/2');
-        $fields->name('trn_date')->type('text')->group('w-1/2');
-        $fields->name('amount')->type('text')->group('w-1/2');
-        $fields->name('ac_from')->type('text')->group('w-1/2');
-        $fields->name('ac_to')->type('text')->group('w-1/2');
-        $fields->name('particulars')->type('text')->group('w-1/2');
+        $fields->name('voucher_no')->html('text')->group('w-1/2');
+        $fields->name('trn_date')->html('text')->group('w-1/2');
+        $fields->name('amount')->html('text')->group('w-1/2');
+        $fields->name('ac_from')->html('text')->group('w-1/2');
+        $fields->name('ac_to')->html('text')->group('w-1/2');
+        $fields->name('particulars')->html('text')->group('w-1/2');
 
         return $fields;
 
@@ -89,10 +89,10 @@ class TransferVoucher extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('voucher_no')->type('text')->group('w-1/6');
-        $fields->name('trn_date')->type('text')->group('w-1/6');
-        $fields->name('amount')->type('text')->group('w-1/6');
-        $fields->name('ac_from')->type('text')->group('w-1/6');
+        $fields->name('voucher_no')->html('text')->group('w-1/6');
+        $fields->name('trn_date')->html('text')->group('w-1/6');
+        $fields->name('amount')->html('text')->group('w-1/6');
+        $fields->name('ac_from')->html('text')->group('w-1/6');
 
         return $fields;
 
@@ -105,12 +105,12 @@ class TransferVoucher extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->integer('voucher_no')->nullable();
-        $table->date('trn_date')->nullable();
-        $table->decimal('amount', 20, 2)->nullable();
-        $table->integer('ac_from')->nullable();
-        $table->integer('ac_to')->nullable();
-        $table->string('particulars')->nullable();
+        $this->fields->increments('id');
+        $this->fields->integer('voucher_no')->nullable();
+        $this->fields->date('trn_date')->nullable();
+        $this->fields->decimal('amount', 20, 2)->nullable();
+        $this->fields->integer('ac_from')->nullable();
+        $this->fields->integer('ac_to')->nullable();
+        $this->fields->string('particulars')->nullable();
     }
 }

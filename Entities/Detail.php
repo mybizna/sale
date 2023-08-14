@@ -49,13 +49,13 @@ class Detail extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('trn_no')->type('text')->ordering(true);
-        $fields->name('product_id')->type('text')->ordering(true);
-        $fields->name('qty')->type('text')->ordering(true);
-        $fields->name('price')->type('text')->ordering(true);
-        $fields->name('amount')->type('text')->ordering(true);
-        $fields->name('tax')->type('text')->ordering(true);
-        $fields->name('tax_cat_id')->type('text')->ordering(true);
+        $fields->name('trn_no')->html('text')->ordering(true);
+        $fields->name('product_id')->html('text')->ordering(true);
+        $fields->name('qty')->html('text')->ordering(true);
+        $fields->name('price')->html('text')->ordering(true);
+        $fields->name('amount')->html('text')->ordering(true);
+        $fields->name('tax')->html('text')->ordering(true);
+        $fields->name('tax_cat_id')->html('text')->ordering(true);
 
         return $fields;
 
@@ -71,13 +71,13 @@ class Detail extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('trn_no')->type('text')->group('w-1/2');
-        $fields->name('product_id')->type('text')->group('w-1/2');
-        $fields->name('qty')->type('text')->group('w-1/2');
-        $fields->name('price')->type('text')->group('w-1/2');
-        $fields->name('amount')->type('text')->group('w-1/2');
-        $fields->name('tax')->type('text')->group('w-1/2');
-        $fields->name('tax_cat_id')->type('text')->group('w-1/2');
+        $fields->name('trn_no')->html('text')->group('w-1/2');
+        $fields->name('product_id')->html('text')->group('w-1/2');
+        $fields->name('qty')->html('text')->group('w-1/2');
+        $fields->name('price')->html('text')->group('w-1/2');
+        $fields->name('amount')->html('text')->group('w-1/2');
+        $fields->name('tax')->html('text')->group('w-1/2');
+        $fields->name('tax_cat_id')->html('text')->group('w-1/2');
 
         return $fields;
 
@@ -93,11 +93,11 @@ class Detail extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('trn_no')->type('text')->group('w-1/6');
-        $fields->name('product_id')->type('text')->group('w-1/6');
-        $fields->name('qty')->type('text')->group('w-1/6');
-        $fields->name('price')->type('text')->group('w-1/6');
-        $fields->name('amount')->type('text')->group('w-1/6');
+        $fields->name('trn_no')->html('text')->group('w-1/6');
+        $fields->name('product_id')->html('text')->group('w-1/6');
+        $fields->name('qty')->html('text')->group('w-1/6');
+        $fields->name('price')->html('text')->group('w-1/6');
+        $fields->name('amount')->html('text')->group('w-1/6');
 
         return $fields;
 
@@ -110,13 +110,13 @@ class Detail extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->integer('trn_no')->nullable();
-        $table->integer('product_id')->nullable();
-        $table->integer('qty')->nullable();
-        $table->decimal('price', 20, 2)->default(0.00);
-        $table->decimal('amount', 20, 2)->default(0.00);
-        $table->decimal('tax', 20, 2)->nullable();
-        $table->integer('tax_cat_id')->nullable();
+        $this->fields->increments('id');
+        $this->fields->integer('trn_no')->nullable();
+        $this->fields->integer('product_id')->nullable();
+        $this->fields->integer('qty')->nullable();
+        $this->fields->decimal('price', 20, 2)->default(0.00);
+        $this->fields->decimal('amount', 20, 2)->default(0.00);
+        $this->fields->decimal('tax', 20, 2)->nullable();
+        $this->fields->integer('tax_cat_id')->nullable();
     }
 }

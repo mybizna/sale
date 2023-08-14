@@ -47,9 +47,9 @@ class DetailTax extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('invoice_details_id')->type('text')->ordering(true);
-        $fields->name('agency_id')->type('text')->ordering(true);
-        $fields->name('tax_rate')->type('text')->ordering(true);
+        $fields->name('invoice_details_id')->html('text')->ordering(true);
+        $fields->name('agency_id')->html('text')->ordering(true);
+        $fields->name('tax_rate')->html('text')->ordering(true);
 
         return $fields;
 
@@ -65,9 +65,9 @@ class DetailTax extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('invoice_details_id')->type('text')->group('w-1/2');
-        $fields->name('agency_id')->type('text')->group('w-1/2');
-        $fields->name('tax_rate')->type('text')->group('w-1/2');
+        $fields->name('invoice_details_id')->html('text')->group('w-1/2');
+        $fields->name('agency_id')->html('text')->group('w-1/2');
+        $fields->name('tax_rate')->html('text')->group('w-1/2');
 
         return $fields;
 
@@ -83,9 +83,9 @@ class DetailTax extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('invoice_details_id')->type('text')->group('w-1/6');
-        $fields->name('agency_id')->type('text')->group('w-1/6');
-        $fields->name('tax_rate')->type('text')->group('w-1/6');
+        $fields->name('invoice_details_id')->html('text')->group('w-1/6');
+        $fields->name('agency_id')->html('text')->group('w-1/6');
+        $fields->name('tax_rate')->html('text')->group('w-1/6');
 
         return $fields;
 
@@ -98,9 +98,9 @@ class DetailTax extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->integer('invoice_details_id');
-        $table->integer('agency_id')->nullable();
-        $table->decimal('tax_rate', 20, 2);
+        $this->fields->increments('id');
+        $this->fields->integer('invoice_details_id');
+        $this->fields->integer('agency_id')->nullable();
+        $this->fields->decimal('tax_rate', 20, 2);
     }
 }

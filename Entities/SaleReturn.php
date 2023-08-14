@@ -50,14 +50,14 @@ class SaleReturn extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('invoice_id')->type('text')->ordering(true);
-        $fields->name('voucher_no')->type('text')->ordering(true);
-        $fields->name('customer_id')->type('text')->ordering(true);
-        $fields->name('customer_name')->type('text')->ordering(true);
-        $fields->name('trn_date')->type('text')->ordering(true);
-        $fields->name('amount')->type('text')->ordering(true);
-        $fields->name('discount')->type('text')->ordering(true);
-        $fields->name('discount_type')->type('text')->ordering(true);
+        $fields->name('invoice_id')->html('text')->ordering(true);
+        $fields->name('voucher_no')->html('text')->ordering(true);
+        $fields->name('customer_id')->html('text')->ordering(true);
+        $fields->name('customer_name')->html('text')->ordering(true);
+        $fields->name('trn_date')->html('text')->ordering(true);
+        $fields->name('amount')->html('text')->ordering(true);
+        $fields->name('discount')->html('text')->ordering(true);
+        $fields->name('discount_type')->html('text')->ordering(true);
 
         return $fields;
 
@@ -73,18 +73,18 @@ class SaleReturn extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('invoice_id')->type('text')->group('w-1/2');
-        $fields->name('voucher_no')->type('text')->group('w-1/2');
-        $fields->name('customer_id')->type('text')->group('w-1/2');
-        $fields->name('customer_name')->type('text')->group('w-1/2');
-        $fields->name('trn_date')->type('text')->group('w-1/2');
-        $fields->name('amount')->type('text')->group('w-1/2');
-        $fields->name('discount')->type('text')->group('w-1/2');
-        $fields->name('discount_type')->type('text')->group('w-1/2');
-        $fields->name('tax')->type('text')->group('w-1/2');
-        $fields->name('reason')->type('text')->group('w-1/2');
-        $fields->name('comments')->type('text')->group('w-1/2');
-        $fields->name('status')->type('text')->group('w-1/2');
+        $fields->name('invoice_id')->html('text')->group('w-1/2');
+        $fields->name('voucher_no')->html('text')->group('w-1/2');
+        $fields->name('customer_id')->html('text')->group('w-1/2');
+        $fields->name('customer_name')->html('text')->group('w-1/2');
+        $fields->name('trn_date')->html('text')->group('w-1/2');
+        $fields->name('amount')->html('text')->group('w-1/2');
+        $fields->name('discount')->html('text')->group('w-1/2');
+        $fields->name('discount_type')->html('text')->group('w-1/2');
+        $fields->name('tax')->html('text')->group('w-1/2');
+        $fields->name('reason')->html('text')->group('w-1/2');
+        $fields->name('comments')->html('text')->group('w-1/2');
+        $fields->name('status')->html('text')->group('w-1/2');
 
         return $fields;
 
@@ -100,14 +100,14 @@ class SaleReturn extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('invoice_id')->type('text')->group('w-1/6');
-        $fields->name('voucher_no')->type('text')->group('w-1/6');
-        $fields->name('customer_id')->type('text')->group('w-1/6');
-        $fields->name('customer_name')->type('text')->group('w-1/6');
-        $fields->name('trn_date')->type('text')->group('w-1/6');
-        $fields->name('amount')->type('text')->group('w-1/6');
-        $fields->name('discount')->type('text')->group('w-1/6');
-        $fields->name('discount_type')->type('text')->group('w-1/6');
+        $fields->name('invoice_id')->html('text')->group('w-1/6');
+        $fields->name('voucher_no')->html('text')->group('w-1/6');
+        $fields->name('customer_id')->html('text')->group('w-1/6');
+        $fields->name('customer_name')->html('text')->group('w-1/6');
+        $fields->name('trn_date')->html('text')->group('w-1/6');
+        $fields->name('amount')->html('text')->group('w-1/6');
+        $fields->name('discount')->html('text')->group('w-1/6');
+        $fields->name('discount_type')->html('text')->group('w-1/6');
 
         return $fields;
 
@@ -121,18 +121,18 @@ class SaleReturn extends BaseModel
     public function migration(Blueprint $table): void
     {
 
-        $table->increments('id');
-        $table->integer('invoice_id');
-        $table->integer('voucher_no');
-        $table->integer('customer_id')->nullable();
-        $table->string('customer_name')->nullable();
-        $table->date('trn_date');
-        $table->decimal('amount', 20, 2);
-        $table->decimal('discount', 20, 2)->default(0.00);
-        $table->string('discount_type')->nullable();
-        $table->decimal('tax', 20, 2)->default(0.00);
-        $table->text('reason')->nullable();
-        $table->text('comments')->nullable();
-        $table->integer('status')->nullable()->comment("0 means drafted, 1 means confirmed return");
+        $this->fields->increments('id');
+        $this->fields->integer('invoice_id');
+        $this->fields->integer('voucher_no');
+        $this->fields->integer('customer_id')->nullable();
+        $this->fields->string('customer_name')->nullable();
+        $this->fields->date('trn_date');
+        $this->fields->decimal('amount', 20, 2);
+        $this->fields->decimal('discount', 20, 2)->default(0.00);
+        $this->fields->string('discount_type')->nullable();
+        $this->fields->decimal('tax', 20, 2)->default(0.00);
+        $this->fields->text('reason')->nullable();
+        $this->fields->text('comments')->nullable();
+        $this->fields->integer('status')->nullable()->comment("0 means drafted, 1 means confirmed return");
     }
 }

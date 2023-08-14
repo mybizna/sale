@@ -49,11 +49,11 @@ class AccountDetail extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('sale_no')->type('text')->ordering(true);
-        $fields->name('trn_no')->type('text')->ordering(true);
-        $fields->name('trn_date')->type('date')->ordering(true);
-        $fields->name('debit')->type('text')->ordering(true);
-        $fields->name('credit')->type('text')->ordering(true);
+        $fields->name('sale_no')->html('text')->ordering(true);
+        $fields->name('trn_no')->html('text')->ordering(true);
+        $fields->name('trn_date')->html('date')->ordering(true);
+        $fields->name('debit')->html('text')->ordering(true);
+        $fields->name('credit')->html('text')->ordering(true);
 
         return $fields;
 
@@ -69,12 +69,12 @@ class AccountDetail extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('sale_no')->type('text')->group('w-1/2');
-        $fields->name('trn_no')->type('text')->group('w-1/2');
-        $fields->name('trn_date')->type('date')->group('w-1/2');
-        $fields->name('debit')->type('text')->group('w-1/2');
-        $fields->name('credit')->type('text')->group('w-1/2');
-        $fields->name('particulars')->type('text')->group('w-1/2');
+        $fields->name('sale_no')->html('text')->group('w-1/2');
+        $fields->name('trn_no')->html('text')->group('w-1/2');
+        $fields->name('trn_date')->html('date')->group('w-1/2');
+        $fields->name('debit')->html('text')->group('w-1/2');
+        $fields->name('credit')->html('text')->group('w-1/2');
+        $fields->name('particulars')->html('text')->group('w-1/2');
 
         return $fields;
 
@@ -90,11 +90,11 @@ class AccountDetail extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('sale_no')->type('text')->group('w-1/6');
-        $fields->name('trn_no')->type('text')->group('w-1/6');
-        $fields->name('trn_date')->type('date')->group('w-1/6');
-        $fields->name('debit')->type('text')->group('w-1/6');
-        $fields->name('credit')->type('text')->group('w-1/6');
+        $fields->name('sale_no')->html('text')->group('w-1/6');
+        $fields->name('trn_no')->html('text')->group('w-1/6');
+        $fields->name('trn_date')->html('date')->group('w-1/6');
+        $fields->name('debit')->html('text')->group('w-1/6');
+        $fields->name('credit')->html('text')->group('w-1/6');
 
         return $fields;
 
@@ -107,12 +107,12 @@ class AccountDetail extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->integer('sale_no')->nullable();
-        $table->integer('trn_no')->nullable();
-        $table->date('trn_date')->nullable();
-        $table->string('particulars')->nullable();
-        $table->decimal('debit', 20, 2)->default(0.00);
-        $table->decimal('credit', 20, 2)->default(0.00);
+        $this->fields->increments('id');
+        $this->fields->integer('sale_no')->nullable();
+        $this->fields->integer('trn_no')->nullable();
+        $this->fields->date('trn_date')->nullable();
+        $this->fields->string('particulars')->nullable();
+        $this->fields->decimal('debit', 20, 2)->default(0.00);
+        $this->fields->decimal('credit', 20, 2)->default(0.00);
     }
 }

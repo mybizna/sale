@@ -47,9 +47,9 @@ class VoucherNo extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('type')->type('text')->ordering(true);
-        $fields->name('currency')->type('text')->ordering(true);
-        $fields->name('editable')->type('switch')->ordering(true);
+        $fields->name('type')->html('text')->ordering(true);
+        $fields->name('currency')->html('text')->ordering(true);
+        $fields->name('editable')->html('switch')->ordering(true);
 
         return $fields;
 
@@ -65,9 +65,9 @@ class VoucherNo extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('type')->type('text')->group('w-1/2');
-        $fields->name('currency')->type('text')->group('w-1/2');
-        $fields->name('editable')->type('switch')->group('w-1/2');
+        $fields->name('type')->html('text')->group('w-1/2');
+        $fields->name('currency')->html('text')->group('w-1/2');
+        $fields->name('editable')->html('switch')->group('w-1/2');
 
         return $fields;
 
@@ -83,9 +83,9 @@ class VoucherNo extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('type')->type('text')->group('w-1/6');
-        $fields->name('currency')->type('text')->group('w-1/6');
-        $fields->name('editable')->type('switch')->group('w-1/6');
+        $fields->name('type')->html('text')->group('w-1/6');
+        $fields->name('currency')->html('text')->group('w-1/6');
+        $fields->name('editable')->html('switch')->group('w-1/6');
 
         return $fields;
 
@@ -98,9 +98,9 @@ class VoucherNo extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->string('type')->nullable();
-        $table->string('currency', 50)->nullable();
-        $table->boolean('editable')->default(0);
+        $this->fields->increments('id');
+        $this->fields->string('type')->nullable();
+        $this->fields->string('currency', 50)->nullable();
+        $this->fields->boolean('editable')->default(0);
     }
 }

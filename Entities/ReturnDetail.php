@@ -50,15 +50,15 @@ class ReturnDetail extends BaseModel
         // listing view fields
         $fields = new ListTable();
 
-        $fields->name('invoice_details_id')->type('text')->ordering(true);
-        $fields->name('trn_no')->type('text')->ordering(true);
-        $fields->name('product_id')->type('text')->ordering(true);
-        $fields->name('qty')->type('text')->ordering(true);
-        $fields->name('unit_price')->type('text')->ordering(true);
-        $fields->name('discount')->type('text')->ordering(true);
-        $fields->name('tax')->type('text')->ordering(true);
-        $fields->name('item_total')->type('text')->ordering(true);
-        $fields->name('ecommerce_type')->type('text')->ordering(true);
+        $fields->name('invoice_details_id')->html('text')->ordering(true);
+        $fields->name('trn_no')->html('text')->ordering(true);
+        $fields->name('product_id')->html('text')->ordering(true);
+        $fields->name('qty')->html('text')->ordering(true);
+        $fields->name('unit_price')->html('text')->ordering(true);
+        $fields->name('discount')->html('text')->ordering(true);
+        $fields->name('tax')->html('text')->ordering(true);
+        $fields->name('item_total')->html('text')->ordering(true);
+        $fields->name('ecommerce_type')->html('text')->ordering(true);
 
         return $fields;
 
@@ -74,15 +74,15 @@ class ReturnDetail extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('invoice_details_id')->type('text')->group('w-1/2');
-        $fields->name('trn_no')->type('text')->group('w-1/2');
-        $fields->name('product_id')->type('text')->group('w-1/2');
-        $fields->name('qty')->type('text')->group('w-1/2');
-        $fields->name('unit_price')->type('text')->group('w-1/2');
-        $fields->name('discount')->type('text')->group('w-1/2');
-        $fields->name('tax')->type('text')->group('w-1/2');
-        $fields->name('item_total')->type('text')->group('w-1/2');
-        $fields->name('ecommerce_type')->type('text')->group('w-1/2');
+        $fields->name('invoice_details_id')->html('text')->group('w-1/2');
+        $fields->name('trn_no')->html('text')->group('w-1/2');
+        $fields->name('product_id')->html('text')->group('w-1/2');
+        $fields->name('qty')->html('text')->group('w-1/2');
+        $fields->name('unit_price')->html('text')->group('w-1/2');
+        $fields->name('discount')->html('text')->group('w-1/2');
+        $fields->name('tax')->html('text')->group('w-1/2');
+        $fields->name('item_total')->html('text')->group('w-1/2');
+        $fields->name('ecommerce_type')->html('text')->group('w-1/2');
 
         return $fields;
 
@@ -98,10 +98,10 @@ class ReturnDetail extends BaseModel
         // listing view fields
         $fields = new FormBuilder();
 
-        $fields->name('invoice_details_id')->type('text')->group('w-1/6');
-        $fields->name('trn_no')->type('text')->group('w-1/6');
-        $fields->name('product_id')->type('text')->group('w-1/6');
-        $fields->name('qty')->type('text')->group('w-1/6');
+        $fields->name('invoice_details_id')->html('text')->group('w-1/6');
+        $fields->name('trn_no')->html('text')->group('w-1/6');
+        $fields->name('product_id')->html('text')->group('w-1/6');
+        $fields->name('qty')->html('text')->group('w-1/6');
 
         return $fields;
 
@@ -114,15 +114,15 @@ class ReturnDetail extends BaseModel
      */
     public function migration(Blueprint $table): void
     {
-        $table->increments('id');
-        $table->integer('invoice_details_id');
-        $table->integer('trn_no');
-        $table->integer('product_id');
-        $table->integer('qty');
-        $table->decimal('unit_price', 20, 2);
-        $table->decimal('discount', 20, 2)->default(0.00);
-        $table->decimal('tax', 20, 2)->default(0.00);
-        $table->decimal('item_total', 20, 2);
-        $table->string('ecommerce_type')->nullable();
+        $this->fields->increments('id');
+        $this->fields->integer('invoice_details_id');
+        $this->fields->integer('trn_no');
+        $this->fields->integer('product_id');
+        $this->fields->integer('qty');
+        $this->fields->decimal('unit_price', 20, 2);
+        $this->fields->decimal('discount', 20, 2)->default(0.00);
+        $this->fields->decimal('tax', 20, 2)->default(0.00);
+        $this->fields->decimal('item_total', 20, 2);
+        $this->fields->string('ecommerce_type')->nullable();
     }
 }
