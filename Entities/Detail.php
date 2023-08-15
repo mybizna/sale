@@ -43,10 +43,10 @@ class Detail extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->integer('trn_no')->nullable()->html('text');
         $this->fields->integer('product_id')->nullable()->html('text');
@@ -55,5 +55,18 @@ class Detail extends BaseModel
         $this->fields->decimal('amount', 20, 2)->default(0.00)->html('amount');
         $this->fields->decimal('tax', 20, 2)->nullable()->html('amount');
         $this->fields->integer('tax_cat_id')->nullable()->html('text');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['trn_no', 'product_id', 'qty', 'price', 'amount', 'tax', 'tax_cat_id'],
+            'filter' => ['trn_no', 'product_id', 'amount'],
+        ];
+
+        return $structure;
     }
 }

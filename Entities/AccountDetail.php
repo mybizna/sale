@@ -43,10 +43,10 @@ class AccountDetail extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->integer('sale_no')->nullable()->html('text');
         $this->fields->integer('trn_no')->nullable()->html('text');
@@ -54,5 +54,18 @@ class AccountDetail extends BaseModel
         $this->fields->string('particulars')->nullable()->html('textarea');
         $this->fields->decimal('debit', 20, 2)->default(0.00)->html('date');
         $this->fields->decimal('credit', 20, 2)->default(0.00)->html('date');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['sale_no', 'trn_no', 'trn_date', 'debit', 'credit'],
+            'filter' => ['sale_no', 'trn_no'],
+        ];
+
+        return $structure;
     }
 }

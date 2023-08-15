@@ -45,7 +45,7 @@ class Sale extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
@@ -64,5 +64,18 @@ class Sale extends BaseModel
         $this->fields->tinyInteger('purchase_order')->nullable()->html('text');
         $this->fields->string('attachments')->nullable()->html('text');
         $this->fields->string('particulars')->nullable()->html('text');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['voucher_no', 'vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date', 'amount', 'status', 'purchase_order'],
+            'filter' => ['voucher_no', 'vendor_id', 'vendor_name'],
+        ];
+
+        return $structure;
     }
 }

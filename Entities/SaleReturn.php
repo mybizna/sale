@@ -44,7 +44,7 @@ class SaleReturn extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
@@ -61,5 +61,18 @@ class SaleReturn extends BaseModel
         $this->fields->text('reason')->nullable()->html('textarea');
         $this->fields->text('comments')->nullable()->html('textarea');
         $this->fields->integer('status')->nullable()->html('switch')->comment("0 means drafted, 1 means confirmed return");
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date', 'amount', 'discount', 'discount_type', 'status'],
+            'filter' => ['invoice_id', 'voucher_no', 'customer_id'],
+        ];
+
+        return $structure;
     }
 }
