@@ -43,6 +43,8 @@ class VoucherNo extends BaseModel
      */
     public function fields(Blueprint $table): void
     {
+        $this->fields = $table ?? new Blueprint($this->table);
+        
         $this->fields->increments('id')->html('text');
         $this->fields->string('type')->nullable()->html('text');
         $this->fields->string('currency', 50)->nullable()->html('text');
