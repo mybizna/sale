@@ -61,8 +61,15 @@ class AccountDetail extends BaseModel
      */
     public function structure($structure): array
     {
+
         $structure = [
             'table' => ['sale_no', 'trn_no', 'trn_date', 'debit', 'credit'],
+            'form' => [
+                ['label' => 'Sale No', 'class' => 'w-full', 'fields' => ['sale_no']],
+                ['label' => 'Account Details', 'class' => 'w-1/2', 'fields' => ['trn_no', 'trn_date']],
+                ['label' => 'Amount', 'class' => 'w-1/2', 'fields' => ['debit', 'credit']],
+                ['label' => 'Particulars', 'class' => 'w-full', 'fields' => ['particulars']],
+            ],
             'filter' => ['sale_no', 'trn_no'],
         ];
 

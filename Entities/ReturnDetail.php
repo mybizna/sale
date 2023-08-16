@@ -65,8 +65,14 @@ class ReturnDetail extends BaseModel
      */
     public function structure($structure): array
     {
+
         $structure = [
             'table' => ['invoice_details_id', 'trn_no', 'product_id', 'qty', 'unit_price', 'discount', 'tax', 'item_total', 'ecommerce_type'],
+            'form' => [
+                ['label' => 'Trn No', 'class' => 'w-full', 'fields' => ['trn_no']],
+                ['label' => 'Return', 'class' => 'w-1/2', 'fields' => ['invoice_details_id', 'product_id', 'qty', 'unit_price']],
+                ['label' => 'Setting', 'class' => 'w-1/2', 'fields' => ['discount', 'tax', 'item_total', 'ecommerce_type']],
+            ],
             'filter' => ['invoice_details_id', 'trn_no', 'product_id'],
         ];
 

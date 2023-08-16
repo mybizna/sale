@@ -44,7 +44,7 @@ class TransferVoucher extends BaseModel
     public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->integer('voucher_no')->nullable()->html('text');
         $this->fields->date('trn_date')->nullable()->html('text');
@@ -61,6 +61,12 @@ class TransferVoucher extends BaseModel
     {
         $structure = [
             'table' => ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to'],
+            'form' => [
+                ['label' => 'Voucher No', 'class' => 'w-full', 'fields' => ['voucher_no']],
+                ['label' => 'Transfer Voucher', 'class' => 'w-1/2', 'fields' => ['trn_date', 'amount']],
+                ['label' => 'From - To', 'class' => 'w-1/2', 'fields' => ['ac_from', 'ac_to']],
+                ['label' => 'Particulars', 'class' => 'w-full', 'fields' => ['particulars']],
+            ],
             'filter' => ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to'],
         ];
 
