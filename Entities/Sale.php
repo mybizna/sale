@@ -72,17 +72,15 @@ class Sale extends BaseModel
     public function structure($structure): array
     {
 
-        $structure = [
-            'table' => ['voucher_no', 'vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date', 'amount', 'status', 'purchase_order'],
-            'form' => [
-                ['label' => 'Voucher No', 'class' => 'w-full', 'fields' => ['voucher_no']],
-                ['label' => 'Voucher No', 'class' => 'w-1/2', 'fields' => ['vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date']],
-                ['label' => 'Voucher No', 'class' => 'w-1/2', 'fields' => ['amount', 'tax', 'tax_zone_id', 'ref', 'status', 'purchase_order']],
-                ['label' => 'Attachments', 'class' => 'w-full', 'fields' => ['attachments']],
-                ['label' => 'Particulars', 'class' => 'w-full', 'fields' => ['particulars']],
-            ],
-            'filter' => ['voucher_no', 'vendor_id', 'vendor_name'],
+        $structure['table'] = ['voucher_no', 'vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date', 'amount', 'status', 'purchase_order'];
+        $structure['form'] = [
+            ['label' => 'Voucher No', 'class' => 'col-span-full', 'fields' => ['voucher_no']],
+            ['label' => 'Voucher No', 'class' => 'col-span-6', 'fields' => ['vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date']],
+            ['label' => 'Voucher No', 'class' => 'col-span-6', 'fields' => ['amount', 'tax', 'tax_zone_id', 'ref', 'status', 'purchase_order']],
+            ['label' => 'Attachments', 'class' => 'col-span-full', 'fields' => ['attachments']],
+            ['label' => 'Particulars', 'class' => 'col-span-full', 'fields' => ['particulars']],
         ];
+        $structure['filter'] = ['voucher_no', 'vendor_id', 'vendor_name'];
 
         return $structure;
     }

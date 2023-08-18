@@ -69,17 +69,15 @@ class SaleReturn extends BaseModel
     public function structure($structure): array
     {
 
-        $structure = [
-            'table' => ['invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date', 'amount', 'discount', 'discount_type', 'status'],
-            'form' => [
-                ['label' => 'Voucher No', 'class' => 'w-full', 'fields' => ['voucher_no']],
-                ['label' => '', 'class' => 'w-1/2', 'fields' => ['invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date']],
-                ['label' => '', 'class' => 'w-1/2', 'fields' => ['amount', 'discount', 'discount_type', 'tax', 'status']],
-                ['label' => '', 'class' => 'w-full', 'fields' => ['reason']],
-                ['label' => '', 'class' => 'w-full', 'fields' => ['comments']],
-            ],
-            'filter' => ['invoice_id', 'voucher_no', 'customer_id'],
+        $structure['table'] = ['invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date', 'amount', 'discount', 'discount_type', 'status'];
+        $structure['form'] = [
+            ['label' => 'Voucher No', 'class' => 'col-span-full', 'fields' => ['voucher_no']],
+            ['label' => '', 'class' => 'col-span-6', 'fields' => ['invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date']],
+            ['label' => '', 'class' => 'col-span-6', 'fields' => ['amount', 'discount', 'discount_type', 'tax', 'status']],
+            ['label' => '', 'class' => 'col-span-full', 'fields' => ['reason']],
+            ['label' => '', 'class' => 'col-span-full', 'fields' => ['comments']],
         ];
+        $structure['filter'] = ['invoice_id', 'voucher_no', 'customer_id'];
 
         return $structure;
     }

@@ -63,15 +63,13 @@ class Detail extends BaseModel
     public function structure($structure): array
     {
 
-        $structure = [
-            'table' => ['trn_no', 'product_id', 'qty', 'price', 'amount', 'tax', 'tax_cat_id'],
-            'form' => [
-                ['label' => 'Trn No', 'class' => 'w-full', 'fields' => ['trn_no']],
-                ['label' => 'Detail', 'class' => 'w-1/2', 'fields' => ['product_id', 'qty', 'tax', 'tax_cat_id']],
-                ['label' => 'Amount', 'class' => 'w-1/2', 'fields' => ['price', 'amount']],
-            ],
-            'filter' => ['trn_no', 'product_id', 'amount'],
+        $structure['table'] = ['trn_no', 'product_id', 'qty', 'price', 'amount', 'tax', 'tax_cat_id'];
+        $structure['form'] = [
+            ['label' => 'Trn No', 'class' => 'col-span-full', 'fields' => ['trn_no']],
+            ['label' => 'Detail', 'class' => 'col-span-6', 'fields' => ['product_id', 'qty', 'tax', 'tax_cat_id']],
+            ['label' => 'Amount', 'class' => 'col-span-6', 'fields' => ['price', 'amount']],
         ];
+        $structure['filter'] = ['trn_no', 'product_id', 'amount'];
 
         return $structure;
     }

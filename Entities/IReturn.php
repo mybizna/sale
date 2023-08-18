@@ -69,17 +69,15 @@ class IReturn extends BaseModel
     public function structure($structure): array
     {
 
-        $structure = [
-            'table' => ['invoice_id', 'voucher_no', 'vendor_id', 'vendor_name', 'trn_date', 'amount', 'discount', 'discount_type', 'status'],
-            'form' => [
-                ['label' => 'Voucher No', 'class' => 'w-full', 'fields' => ['voucher_no']],
-                ['label' => 'IReturn', 'class' => 'w-1/2', 'fields' => ['invoice_id', 'vendor_id', 'vendor_name', 'trn_date', 'amount']],
-                ['label' => 'IReturn', 'class' => 'w-1/2', 'fields' => ['discount', 'discount_type', 'tax', 'status']],
-                ['label' => '', 'class' => 'w-full', 'fields' => ['reason']],
-                ['label' => '', 'class' => 'w-full', 'fields' => ['comments']],
-            ],
-            'filter' => ['invoice_id', 'vendor_name', 'amount'],
+        $structure['table'] = ['invoice_id', 'voucher_no', 'vendor_id', 'vendor_name', 'trn_date', 'amount', 'discount', 'discount_type', 'status'];
+        $structure['form'] = [
+            ['label' => 'Voucher No', 'class' => 'col-span-full', 'fields' => ['voucher_no']],
+            ['label' => 'IReturn', 'class' => 'col-span-6', 'fields' => ['invoice_id', 'vendor_id', 'vendor_name', 'trn_date', 'amount']],
+            ['label' => 'IReturn', 'class' => 'col-span-6', 'fields' => ['discount', 'discount_type', 'tax', 'status']],
+            ['label' => '', 'class' => 'col-span-full', 'fields' => ['reason']],
+            ['label' => '', 'class' => 'col-span-full', 'fields' => ['comments']],
         ];
+        $structure['filter'] = ['invoice_id', 'vendor_name', 'amount'];
 
         return $structure;
     }

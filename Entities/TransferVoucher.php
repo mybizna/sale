@@ -59,16 +59,14 @@ class TransferVoucher extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to'],
-            'form' => [
-                ['label' => 'Voucher No', 'class' => 'w-full', 'fields' => ['voucher_no']],
-                ['label' => 'Transfer Voucher', 'class' => 'w-1/2', 'fields' => ['trn_date', 'amount']],
-                ['label' => 'From - To', 'class' => 'w-1/2', 'fields' => ['ac_from', 'ac_to']],
-                ['label' => 'Particulars', 'class' => 'w-full', 'fields' => ['particulars']],
-            ],
-            'filter' => ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to'],
+        $structure['table'] = ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to'];
+        $structure['form'] = [
+            ['label' => 'Voucher No', 'class' => 'col-span-full', 'fields' => ['voucher_no']],
+            ['label' => 'Transfer Voucher', 'class' => 'col-span-6', 'fields' => ['trn_date', 'amount']],
+            ['label' => 'From - To', 'class' => 'col-span-6', 'fields' => ['ac_from', 'ac_to']],
+            ['label' => 'Particulars', 'class' => 'col-span-full', 'fields' => ['particulars']],
         ];
+        $structure['filter'] = ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to'];
 
         return $structure;
     }
