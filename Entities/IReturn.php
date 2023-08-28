@@ -48,7 +48,7 @@ class IReturn extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->integer('invoice_id')->html('text');
         $this->fields->integer('voucher_no')->html('text');
         $this->fields->integer('vendor_id')->nullable()->html('text');

@@ -47,7 +47,7 @@ class AccountDetail extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->integer('sale_no')->nullable()->html('text');
         $this->fields->integer('trn_no')->nullable()->html('text');
         $this->fields->date('trn_date')->nullable()->html('date');

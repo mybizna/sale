@@ -45,7 +45,7 @@ class TransferVoucher extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->integer('voucher_no')->nullable()->html('text');
         $this->fields->date('trn_date')->nullable()->html('text');
         $this->fields->decimal('amount', 20, 2)->nullable()->html('amount');

@@ -48,7 +48,7 @@ class ReturnDetail extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
 
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->integer('invoice_details_id')->html('text');
         $this->fields->integer('trn_no')->html('text');
         $this->fields->integer('product_id')->html('text');

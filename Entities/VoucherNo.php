@@ -45,7 +45,7 @@ class VoucherNo extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->string('type')->nullable()->html('text');
         $this->fields->string('currency', 50)->nullable()->html('text');
         $this->fields->boolean('editable')->default(0)->html('switch');

@@ -45,7 +45,7 @@ class DetailTax extends BaseModel
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
-        $this->fields->increments('id')->html('text');
+        $this->fields->increments('id')->html('hidden');
         $this->fields->integer('invoice_details_id')->html('text');
         $this->fields->integer('agency_id')->nullable()->html('text');
         $this->fields->decimal('tax_rate', 20, 2)->html('text');
