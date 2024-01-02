@@ -2,7 +2,7 @@
   "name": "mybizna/sale",
   "description": "",
   "type": "asgard-module",
-  "version": "23.11.001",
+  "version": "24.01.001",
   "license": "GPL-3.0-or-later",
   "authors": [
     {
@@ -10,13 +10,13 @@
       "homepage": "https://mybizna.com",
       "email": "info@mybizna.com"
     },
-    { 
+    {
       "name": "Dedan Irungu",
       "email": "dedanirungu@gmail.com"
     }
   ],
   "require": {
-    "mybizna/account": ">=1.0.0"
+    "mybizna/account": ">=24.01.001"
   },
   "extra": {
     "laravel": {
