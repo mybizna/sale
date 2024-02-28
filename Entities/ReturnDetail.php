@@ -68,9 +68,9 @@ class ReturnDetail extends BaseModel
 
         $structure['table'] = ['invoice_details_id', 'trn_no', 'product_id', 'qty', 'unit_price', 'discount', 'tax', 'item_total', 'ecommerce_type'];
         $structure['form'] = [
-            ['label' => 'Trn No', 'class' => 'col-span-full', 'fields' => ['trn_no']],
-            ['label' => 'Return', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['invoice_details_id', 'product_id', 'qty', 'unit_price']],
-            ['label' => 'Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['discount', 'tax', 'item_total', 'ecommerce_type']],
+            ['label' => 'Return Trn No', 'class' => 'col-span-full', 'fields' => ['trn_no']],
+            ['label' => 'Return Detail ', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['invoice_details_id', 'product_id', 'qty', 'unit_price']],
+            ['label' => 'Return Detail Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['discount', 'tax', 'item_total', 'ecommerce_type']],
         ];
         $structure['filter'] = ['invoice_details_id', 'trn_no', 'product_id'];
 

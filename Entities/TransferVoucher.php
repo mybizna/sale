@@ -63,8 +63,8 @@ class TransferVoucher extends BaseModel
         $structure['form'] = [
             ['label' => 'Voucher No', 'class' => 'col-span-full', 'fields' => ['voucher_no']],
             ['label' => 'Transfer Voucher', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['trn_date', 'amount']],
-            ['label' => 'From - To', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['ac_from', 'ac_to']],
-            ['label' => 'Particulars', 'class' => 'col-span-full', 'fields' => ['particulars']],
+            ['label' => 'Transfer Voucher From - To', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['ac_from', 'ac_to']],
+            ['label' => 'Transfer Voucher Particulars', 'class' => 'col-span-full', 'fields' => ['particulars']],
         ];
         $structure['filter'] = ['voucher_no', 'trn_date', 'amount', 'ac_from', 'ac_to'];
 
