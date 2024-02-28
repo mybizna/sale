@@ -66,8 +66,8 @@ class Detail extends BaseModel
         $structure['table'] = ['trn_no', 'product_id', 'qty', 'price', 'amount', 'tax', 'tax_cat_id'];
         $structure['form'] = [
             ['label' => 'Trn No', 'class' => 'col-span-full', 'fields' => ['trn_no']],
-            ['label' => 'Detail', 'class' => 'col-span-full md:col-span-6', 'fields' => ['product_id', 'qty', 'tax', 'tax_cat_id']],
-            ['label' => 'Amount', 'class' => 'col-span-full md:col-span-6', 'fields' => ['price', 'amount']],
+            ['label' => 'Detail', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['product_id', 'qty', 'tax', 'tax_cat_id']],
+            ['label' => 'Amount', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['price', 'amount']],
         ];
         $structure['filter'] = ['trn_no', 'product_id', 'amount'];
 

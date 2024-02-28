@@ -65,8 +65,8 @@ class AccountDetail extends BaseModel
         $structure['table'] = ['sale_no', 'trn_no', 'trn_date', 'debit', 'credit'];
         $structure['form'] = [
             ['label' => 'Sale No', 'class' => 'col-span-full', 'fields' => ['sale_no']],
-            ['label' => 'Account Details', 'class' => 'col-span-full md:col-span-6', 'fields' => ['trn_no', 'trn_date']],
-            ['label' => 'Amount', 'class' => 'col-span-full md:col-span-6', 'fields' => ['debit', 'credit']],
+            ['label' => 'Account Details', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['trn_no', 'trn_date']],
+            ['label' => 'Amount', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['debit', 'credit']],
             ['label' => 'Particulars', 'class' => 'col-span-full', 'fields' => ['particulars']],
         ];
         $structure['filter'] = ['sale_no', 'trn_no'];

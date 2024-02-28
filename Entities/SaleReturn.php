@@ -72,8 +72,8 @@ class SaleReturn extends BaseModel
         $structure['table'] = ['invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date', 'amount', 'discount', 'discount_type', 'status'];
         $structure['form'] = [
             ['label' => 'Voucher No', 'class' => 'col-span-full', 'fields' => ['voucher_no']],
-            ['label' => '', 'class' => 'col-span-full md:col-span-6', 'fields' => ['invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date']],
-            ['label' => '', 'class' => 'col-span-full md:col-span-6', 'fields' => ['amount', 'discount', 'discount_type', 'tax', 'status']],
+            ['label' => '', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['invoice_id', 'voucher_no', 'customer_id', 'customer_name', 'trn_date']],
+            ['label' => '', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['amount', 'discount', 'discount_type', 'tax', 'status']],
             ['label' => '', 'class' => 'col-span-full', 'fields' => ['reason']],
             ['label' => '', 'class' => 'col-span-full', 'fields' => ['comments']],
         ];

@@ -75,8 +75,8 @@ class Sale extends BaseModel
         $structure['table'] = ['voucher_no', 'vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date', 'amount', 'status', 'purchase_order'];
         $structure['form'] = [
             ['label' => 'Voucher No', 'class' => 'col-span-full', 'fields' => ['voucher_no']],
-            ['label' => 'Voucher No', 'class' => 'col-span-full md:col-span-6', 'fields' => ['vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date']],
-            ['label' => 'Voucher No', 'class' => 'col-span-full md:col-span-6', 'fields' => ['amount', 'tax', 'tax_zone_id', 'ref', 'status', 'purchase_order']],
+            ['label' => 'Voucher No', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date']],
+            ['label' => 'Voucher No', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['amount', 'tax', 'tax_zone_id', 'ref', 'status', 'purchase_order']],
             ['label' => 'Attachments', 'class' => 'col-span-full', 'fields' => ['attachments']],
             ['label' => 'Particulars', 'class' => 'col-span-full', 'fields' => ['particulars']],
         ];
