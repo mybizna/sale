@@ -2,7 +2,7 @@
 
 /** @var \Modules\Base\Classes\Fetch\Menus $this */
 
-/*
+
 $this->add_module_info("sale", [
     'title' => 'Sale',
     'description' => 'Sale',
@@ -13,4 +13,7 @@ $this->add_module_info("sale", [
 
 
 //$this->add_menu("module", "key", "title","path", "icon", "position");
-$this->add_menu("sale", "sales", "Sales", "/sale/admin/sale", "fas fa-cogs", 5);*/
+$this->add_menu("sale", "sale", "Sales", "/sale/admin/sale", "fas fa-cogs", 5);
+$this->add_menu("sale", "order", "Order", "/sale/admin/order", "fas fa-cogs", 5);
+$this->add_menu("sale", "cart", "Cart", "/sale/admin/cart", "fas fa-cogs", 5);
+$this->add_menu("sale", "shipping", "Shipping", "/sale/admin/shipping", "fas fa-cogs", 5);
