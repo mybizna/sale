@@ -19,20 +19,6 @@ class Order extends BaseModel
     ];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['voucher_no', 'vender_name'];
-
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -66,38 +52,6 @@ class Order extends BaseModel
         $this->fields->string('particulars')->nullable()->html('text');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
+  
 
-        $structure['table'] = ['voucher_no', 'vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date', 'amount', 'status', 'purchase_order'];
-        $structure['form'] = [
-            ['label' => 'Sale Voucher No', 'class' => 'col-span-full', 'fields' => ['voucher_no']],
-            ['label' => 'Sale Detail', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['vendor_id', 'vendor_name', 'billing_address', 'trn_date', 'due_date']],
-            ['label' => 'Sale Other Setting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['amount', 'tax', 'tax_zone_id', 'ref', 'status', 'purchase_order']],
-            ['label' => 'Sale Attachments', 'class' => 'col-span-full', 'fields' => ['attachments']],
-            ['label' => 'Sale Particulars', 'class' => 'col-span-full', 'fields' => ['particulars']],
-        ];
-        $structure['filter'] = ['voucher_no', 'vendor_id', 'vendor_name'];
-
-        return $structure;
-    }
-
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
-
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
 }
