@@ -9,7 +9,7 @@ class SaleServiceProvider extends ServiceProvider
 {
     protected string $moduleName = 'Sale';
 
-    protected string $moduleNameLower = 'Sale';
+    protected string $moduleNameLower = 'sale';
 
     /**
      * Boot the application events.
